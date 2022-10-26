@@ -1,8 +1,16 @@
 ﻿// See https://aka.ms/new-console-template for more information
 using WebScraper.Tools;
 
-Console.WriteLine("Hello, World!");
-HttpHelper httpHelper = new HttpHelper();
+Console.WriteLine("Please input the full url to the page you would like to scrape: \n");
+var userInput = Console.ReadLine();
+
+while(userInput is null or "")
+{
+    Console.WriteLine("Please input the full url to the page you would like to scrape: \n");
+    userInput = Console.ReadLine();
+}
+
+HttpHelper httpHelper = new HttpHelper(userInput);
 HtmlHelper htmlHelper = new HtmlHelper();
 Exporter exporter = new Exporter();
 
